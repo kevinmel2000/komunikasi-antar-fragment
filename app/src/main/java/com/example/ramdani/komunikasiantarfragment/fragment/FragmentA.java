@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.ramdani.komunikasiantarfragment.R;
+import com.example.ramdani.komunikasiantarfragment.listener.OnFragmentAChangeListener;
 
 /**
  * Created by ramdani on 28/03/17.
@@ -21,10 +22,6 @@ public class FragmentA extends Fragment {
 
     private Button btnPindah;
 
-    public interface OnFragmentAChangeListener{
-        public void tambahKata(String kata);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,7 +31,7 @@ public class FragmentA extends Fragment {
         btnPindah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onFragmentAChangeListener.tambahKata("Rizki Ramdani");
+                onFragmentAChangeListener.changeWord("Rizki Ramdani");
             }
         });
 

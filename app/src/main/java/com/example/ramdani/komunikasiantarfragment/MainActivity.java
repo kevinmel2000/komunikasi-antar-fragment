@@ -9,8 +9,9 @@ import android.widget.Button;
 
 import com.example.ramdani.komunikasiantarfragment.fragment.FragmentA;
 import com.example.ramdani.komunikasiantarfragment.fragment.FragmentB;
+import com.example.ramdani.komunikasiantarfragment.listener.OnFragmentAChangeListener;
 
-public class MainActivity extends AppCompatActivity implements FragmentA.OnFragmentAChangeListener{
+public class MainActivity extends AppCompatActivity implements OnFragmentAChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
     }
 
     @Override
-    public void tambahKata(String kata) {
-
+    public void changeWord(String kata) {
         FragmentB fragmentB = (FragmentB)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_b);
 
@@ -51,14 +51,9 @@ public class MainActivity extends AppCompatActivity implements FragmentA.OnFragm
             newFragment.setArguments(args);
 
             getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.fragment_container, newFragment)
-                                        .addToBackStack(null).commit();
+                    .replace(R.id.fragment_container, newFragment)
+                    .addToBackStack(null).commit();
 
         }
-    }
-
-    @Override
-    public void onAttachFragment(Fragment fragment) {
-        super.onAttachFragment(fragment);
     }
 }
